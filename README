@@ -1,0 +1,4 @@
+2023-05-25
+
+The current CMakeLists.txt is based on CMake 3.25
+Functionality as provided by CMake 3.26 has not yet been implemented.
