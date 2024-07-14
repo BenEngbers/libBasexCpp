@@ -13,6 +13,7 @@ BasexSocket::BasexSocket (const std::string DBHOST, const std::string DBPORT,
 		const std::string DBUSERNAME, const std::string DBPASSWORD) {
 	CreateSocket (DBHOST, DBPORT).Authenticate (DBUSERNAME, DBPASSWORD);
 };
+BasexSocket::~BasexSocket() { close(Master_sfd);};
 
 BasexSocket& BasexSocket::CreateSocket (std::string host, std::string port) {
 	if (host.empty() || port.empty()) {
@@ -99,6 +100,42 @@ bool         BasexSocket::wait() {
 	};
 	return done;
 };
+
+int          BasexSocket::readSocket( std::string &sockResponseString) {
+	// use lambdas as local functions
+	auto can_read = [](int s) -> bool {
+		fd_set read_set;
+		FD_ZERO(&read_set);
+		FD_SET(s, &read_set);
+		struct timeval timeout {};
+		int rc = select(s + 1, &read_set, NULL, NULL, &timeout);
+		return (rc == 1) && FD_ISSET(s, &read_set);
+	};
+	auto do_read = [&sockResponseString](int s) -> bool {
+		// don't need non-blocking checks, code works with both blocking
+		// and non-blocking sockets as select() says we're good to read
+		char buf[BUFSIZ];
+		int nbytes = recv(s, buf, sizeof(buf), 0);
+		if (nbytes <= 0)
+			return false;
+		sockResponseString += std::string(buf, static_cast<size_t>(nbytes));
+		return true;
+	};
+
+	sockResponseString.clear();
+	bool done{};
+	while (!done) {                                        // keep looping until first read
+		if (can_read(Master_sfd) && do_read(Master_sfd)) {
+			while (!done) {                                    // then return once all the buffered input is read
+				if (!can_read(Master_sfd))
+					done = true;
+				do_read(Master_sfd);
+			}
+		}
+	}
+	return static_cast<int>(sockResponseString.size());
+};
+int          BasexSocket::get_Socket() {return Master_sfd;};
 
 int          BasexSocket::writeData(const std::string & input) {
 	int send_len = input.size();

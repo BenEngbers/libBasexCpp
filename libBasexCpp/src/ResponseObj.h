@@ -26,7 +26,7 @@ public:
 	ByteVect              getResultBytes() {return ResultBytes;};     // Result without inserted \FF
 	string                getInfo();                                  // info or error message
 	ByteVect              getResult();                                // Result from Command
-	std::string           getResultString();                          // Result converted to string
+	string                getResultString();                          // Result converted to string
 
 	byte                  StatusByte;
 	std::string           CallFunction;

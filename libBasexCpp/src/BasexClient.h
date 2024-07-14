@@ -16,8 +16,6 @@ class QueryObject;
 #include "ResponseObj.h"
 #include "QueryObject.h"
 #include "Base.h"
-// #include <initializer_list>
-// #include <stdexcept>
 #include <fstream>
 #include <sstream>
 #include <iostream>
