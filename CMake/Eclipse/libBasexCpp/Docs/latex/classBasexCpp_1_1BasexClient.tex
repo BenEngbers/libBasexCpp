@@ -1,0 +1,254 @@
+\doxysection{Basex\+Cpp\+::Basex\+Client Class Reference}
+\label{classBasexCpp_1_1BasexClient}\index{BasexCpp::BasexClient@{BasexCpp::BasexClient}}
+
+
+{\ttfamily \#include $<$Basex\+Client.\+h$>$}
+
+Inheritance diagram for Basex\+Cpp\+::Basex\+Client\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classBasexCpp_1_1BasexClient}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Basex\+Client} (const string \&, const int \&, const string \&, const string \&)
+\begin{DoxyCompactList}\small\item\em Initiate a \doxyref{Basex\+Client}{p.}{classBasexCpp_1_1BasexClient}. \end{DoxyCompactList}\item 
+void \textbf{ Execute} (const string \&command)
+\begin{DoxyCompactList}\small\item\em Send a command to the server. \end{DoxyCompactList}\item 
+void \textbf{ Create} (const string \&db\+Name, const string \&content="{}"{})
+\begin{DoxyCompactList}\small\item\em Create a new database. \end{DoxyCompactList}\item 
+void \textbf{ Add} (const string \&path, const string \&input)
+\begin{DoxyCompactList}\small\item\em Adds a new document to the opened database. \end{DoxyCompactList}\item 
+void \textbf{ Put} (const string \&path, const string \&input)
+\begin{DoxyCompactList}\small\item\em Puts (adds or replaces) an XML document resource in the opened database. \end{DoxyCompactList}\item 
+void \textbf{ Put\+Binary} (const string \&path, const Byte\+Vect \&input)
+\begin{DoxyCompactList}\small\item\em Puts (adds or replaces) a binary resource in the opened database. \end{DoxyCompactList}\item 
+Query\+Obj\+\_\+\+Uptr \textbf{ Query} (const string \&query)
+\begin{DoxyCompactList}\small\item\em Creates a new query instance and returns its id. The id is used to initiate a unique pointer. \end{DoxyCompactList}\item 
+string \textbf{ get\+Caller} ()
+\begin{DoxyCompactList}\small\item\em The name from the command that is send to the \doxyref{Basex\+Client}{p.}{classBasexCpp_1_1BasexClient} object. \end{DoxyCompactList}\item 
+string \textbf{ get\+Info} ()
+\begin{DoxyCompactList}\small\item\em The info that the server creates after executing the command. \end{DoxyCompactList}\item 
+string \textbf{ get\+Status} ()
+\begin{DoxyCompactList}\small\item\em The status after executing the command. \end{DoxyCompactList}\item 
+string \textbf{ get\+Result\+String} ()
+\begin{DoxyCompactList}\small\item\em The string representation from the result of a call. \end{DoxyCompactList}\item 
+Byte\+Vect \textbf{ get\+Result\+Bytes} ()
+\begin{DoxyCompactList}\small\item\em The server returns the result of a call as a vector of bytes. \end{DoxyCompactList}\item 
+Byte\+Vect \textbf{ get\+Result} ()
+\begin{DoxyCompactList}\small\item\em The relevant part of the {\ttfamily resultbytes}, converted to a string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \textbf{ Basex\+Cpp\+::\+Base}}
+
+
+\doxysubsection{Detailed Description}
+\doxyref{Basex\+Client}{p.}{classBasexCpp_1_1BasexClient}
+
+Each client provides a session class or script with methods to connect to and communicate with the database server. A socket connection will be established by the constructor, which expects a host, port, username and password as arguments. The port number can be offered as a string or as an integer. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\index{BasexCpp::BasexClient@{BasexCpp::BasexClient}!BasexClient@{BasexClient}}
+\index{BasexClient@{BasexClient}!BasexCpp::BasexClient@{BasexCpp::BasexClient}}
+\doxysubsubsection{BasexClient()}
+{\footnotesize\ttfamily \label{classBasexCpp_1_1BasexClient_a7646107f3e3454c880f8ac065cf62e31} 
+Basex\+Cpp\+::\+Basex\+Client\+::\+Basex\+Client (\begin{DoxyParamCaption}\item[{const string \&}]{DBHOST}{, }\item[{const int \&}]{DBPORT}{, }\item[{const string \&}]{DBUSERNAME}{, }\item[{const string \&}]{DBPASSWORD}{}\end{DoxyParamCaption})}
+
+
+
+Initiate a \doxyref{Basex\+Client}{p.}{classBasexCpp_1_1BasexClient}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em DBHOST} & String \\
+\hline
+{\em DBPORT} & Can be offered as string or integer \\
+\hline
+{\em DBUSERNAME} & String \\
+\hline
+{\em DBPASSWORD} & String \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\index{BasexCpp::BasexClient@{BasexCpp::BasexClient}!Add@{Add}}
+\index{Add@{Add}!BasexCpp::BasexClient@{BasexCpp::BasexClient}}
+\doxysubsubsection{Add()}
+{\footnotesize\ttfamily \label{classBasexCpp_1_1BasexClient_a0257c9e8b5c6cd457d00da8d3ad664a8} 
+void Basex\+Cpp\+::\+Basex\+Client\+::\+Add (\begin{DoxyParamCaption}\item[{const string \&}]{path}{, }\item[{const string \&}]{input}{}\end{DoxyParamCaption})}
+
+
+
+Adds a new document to the opened database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The name from the document. \\
+\hline
+{\em input} & The input (content) can be a UTF-\/8 encoded XML document, a binary resource, or any other data (such as JSON or CSV) that can be successfully converted to a resource by the server. \\
+\hline
+\end{DoxyParams}
+\index{BasexCpp::BasexClient@{BasexCpp::BasexClient}!Create@{Create}}
+\index{Create@{Create}!BasexCpp::BasexClient@{BasexCpp::BasexClient}}
+\doxysubsubsection{Create()}
+{\footnotesize\ttfamily \label{classBasexCpp_1_1BasexClient_a98b860e7b309fda5422b9aa044f332cf} 
+void Basex\+Cpp\+::\+Basex\+Client\+::\+Create (\begin{DoxyParamCaption}\item[{const string \&}]{db\+Name}{, }\item[{const string \&}]{content}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})}
+
+
+
+Create a new database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em db\+Name} & The name from the database \\
+\hline
+{\em content} & Optional content \\
+\hline
+\end{DoxyParams}
+\index{BasexCpp::BasexClient@{BasexCpp::BasexClient}!Execute@{Execute}}
+\index{Execute@{Execute}!BasexCpp::BasexClient@{BasexCpp::BasexClient}}
+\doxysubsubsection{Execute()}
+{\footnotesize\ttfamily \label{classBasexCpp_1_1BasexClient_a182c4b68ad7c8101e0be728c54c4b5a7} 
+void Basex\+Cpp\+::\+Basex\+Client\+::\+Execute (\begin{DoxyParamCaption}\item[{const string \&}]{command}{}\end{DoxyParamCaption})}
+
+
+
+Send a command to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & Command to be executed \\
+\hline
+\end{DoxyParams}
+\index{BasexCpp::BasexClient@{BasexCpp::BasexClient}!getCaller@{getCaller}}
+\index{getCaller@{getCaller}!BasexCpp::BasexClient@{BasexCpp::BasexClient}}
+\doxysubsubsection{getCaller()}
+{\footnotesize\ttfamily \label{classBasexCpp_1_1BasexClient_a59f41fd871a0d63cd9230a89c734c6e6} 
+string Basex\+Cpp\+::\+Basex\+Client\+::get\+Caller (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+The name from the command that is send to the \doxyref{Basex\+Client}{p.}{classBasexCpp_1_1BasexClient} object. 
+
+\begin{DoxyReturn}{Returns}
+string 
+\end{DoxyReturn}
+\index{BasexCpp::BasexClient@{BasexCpp::BasexClient}!getInfo@{getInfo}}
+\index{getInfo@{getInfo}!BasexCpp::BasexClient@{BasexCpp::BasexClient}}
+\doxysubsubsection{getInfo()}
+{\footnotesize\ttfamily \label{classBasexCpp_1_1BasexClient_a994cfc96c28c330fa98cc5b3c9ed11fb} 
+string Basex\+Cpp\+::\+Basex\+Client\+::get\+Info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+The info that the server creates after executing the command. 
+
+\begin{DoxyReturn}{Returns}
+string Either \textquotesingle{}Success\textquotesingle{} or \textquotesingle{}Error\+: $<$error feedback$>$\textquotesingle{}. 
+\end{DoxyReturn}
+\index{BasexCpp::BasexClient@{BasexCpp::BasexClient}!getResult@{getResult}}
+\index{getResult@{getResult}!BasexCpp::BasexClient@{BasexCpp::BasexClient}}
+\doxysubsubsection{getResult()}
+{\footnotesize\ttfamily \label{classBasexCpp_1_1BasexClient_a1cf39260df5e4c26daea0bb9f9405375} 
+Byte\+Vect Basex\+Cpp\+::\+Basex\+Client\+::get\+Result (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+The relevant part of the {\ttfamily resultbytes}, converted to a string. 
+
+\begin{DoxyReturn}{Returns}
+string Either \textquotesingle{}Success\textquotesingle{} or \textquotesingle{}Error\textquotesingle{}. 
+\end{DoxyReturn}
+\index{BasexCpp::BasexClient@{BasexCpp::BasexClient}!getResultBytes@{getResultBytes}}
+\index{getResultBytes@{getResultBytes}!BasexCpp::BasexClient@{BasexCpp::BasexClient}}
+\doxysubsubsection{getResultBytes()}
+{\footnotesize\ttfamily \label{classBasexCpp_1_1BasexClient_a3447ddc41ffe571fba24440740c494fe} 
+Byte\+Vect Basex\+Cpp\+::\+Basex\+Client\+::get\+Result\+Bytes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+The server returns the result of a call as a vector of bytes. 
+
+\begin{DoxyReturn}{Returns}
+Byte\+Vect. 
+\end{DoxyReturn}
+\index{BasexCpp::BasexClient@{BasexCpp::BasexClient}!getResultString@{getResultString}}
+\index{getResultString@{getResultString}!BasexCpp::BasexClient@{BasexCpp::BasexClient}}
+\doxysubsubsection{getResultString()}
+{\footnotesize\ttfamily \label{classBasexCpp_1_1BasexClient_a01ccfe7233d6cab12e5a5b18304828f7} 
+string Basex\+Cpp\+::\+Basex\+Client\+::get\+Result\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+The string representation from the result of a call. 
+
+\begin{DoxyReturn}{Returns}
+String. 
+\end{DoxyReturn}
+\index{BasexCpp::BasexClient@{BasexCpp::BasexClient}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!BasexCpp::BasexClient@{BasexCpp::BasexClient}}
+\doxysubsubsection{getStatus()}
+{\footnotesize\ttfamily \label{classBasexCpp_1_1BasexClient_a8e2f1db45b02e4158d745e854779f948} 
+string Basex\+Cpp\+::\+Basex\+Client\+::get\+Status (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+The status after executing the command. 
+
+\begin{DoxyReturn}{Returns}
+string Either \textquotesingle{}Success\textquotesingle{} or \textquotesingle{}Error\textquotesingle{}. 
+\end{DoxyReturn}
+\index{BasexCpp::BasexClient@{BasexCpp::BasexClient}!Put@{Put}}
+\index{Put@{Put}!BasexCpp::BasexClient@{BasexCpp::BasexClient}}
+\doxysubsubsection{Put()}
+{\footnotesize\ttfamily \label{classBasexCpp_1_1BasexClient_ace07b891a3ba1c0c84edae06d5237937} 
+void Basex\+Cpp\+::\+Basex\+Client\+::\+Put (\begin{DoxyParamCaption}\item[{const string \&}]{path}{, }\item[{const string \&}]{input}{}\end{DoxyParamCaption})}
+
+
+
+Puts (adds or replaces) an XML document resource in the opened database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The name from the document. \\
+\hline
+{\em input} & The input (content) can be a UTF-\/8 encoded XML document, a binary resource, or any other data (such as JSON or CSV) that can be successfully converted to a resource by the server. \\
+\hline
+\end{DoxyParams}
+\index{BasexCpp::BasexClient@{BasexCpp::BasexClient}!PutBinary@{PutBinary}}
+\index{PutBinary@{PutBinary}!BasexCpp::BasexClient@{BasexCpp::BasexClient}}
+\doxysubsubsection{PutBinary()}
+{\footnotesize\ttfamily \label{classBasexCpp_1_1BasexClient_aa151947c013a1675f8a9edb0394d03de} 
+void Basex\+Cpp\+::\+Basex\+Client\+::\+Put\+Binary (\begin{DoxyParamCaption}\item[{const string \&}]{path}{, }\item[{const Byte\+Vect \&}]{input}{}\end{DoxyParamCaption})}
+
+
+
+Puts (adds or replaces) a binary resource in the opened database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The name from the document. \\
+\hline
+{\em input} & The input (content) can be a UTF-\/8 encoded XML document, a binary resource, or any other data (such as JSON or CSV) that can be successfully converted to a resource by the server. \\
+\hline
+\end{DoxyParams}
+\index{BasexCpp::BasexClient@{BasexCpp::BasexClient}!Query@{Query}}
+\index{Query@{Query}!BasexCpp::BasexClient@{BasexCpp::BasexClient}}
+\doxysubsubsection{Query()}
+{\footnotesize\ttfamily \label{classBasexCpp_1_1BasexClient_ae073f1b05262ab74bbf1cff1b0bf00ed} 
+Query\+Obj\+\_\+\+Uptr Basex\+Cpp\+::\+Basex\+Client\+::\+Query (\begin{DoxyParamCaption}\item[{const string \&}]{query}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new query instance and returns its id. The id is used to initiate a unique pointer. 
+
+\begin{DoxyReturn}{Returns}
+Unique pointer to a \doxyref{Query\+Object}{p.}{classBasexCpp_1_1QueryObject}. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Basex\+Client.\+h\item 
+src/Basex\+Client.\+cpp\end{DoxyCompactItemize}

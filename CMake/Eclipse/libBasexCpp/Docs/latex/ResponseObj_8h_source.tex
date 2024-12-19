@@ -1,0 +1,47 @@
+\doxysection{Response\+Obj.\+h}
+\label{ResponseObj_8h_source}\index{src/ResponseObj.h@{src/ResponseObj.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ ResponseObj.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Created\ on:\ 9\ mrt.\ 2023}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ Ben\ Engbers}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ LIBBASEXCPP\_SRC\_RESPONSEOBJ\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ LIBBASEXCPP\_SRC\_RESPONSEOBJ\_H\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <iterator>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <experimental/propagate\_const>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}Base.h"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}ClientUtils.h"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }BasexCpp\ \{}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ \ \ \ \ \ \ \ \ \ \ }ResponseObj\ \{}
+\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{class\ }Impl;}
+\DoxyCodeLine{00029\ \ \ std::experimental::propagate\_const<std::unique\_ptr<Impl>>\ pImpl;}
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \textcolor{keyword}{explicit}\ ResponseObj\ ();}
+\DoxyCodeLine{00032\ \ \ \string~\ ResponseObj\ ();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ setValues\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&,\ ByteVect\ \&);}
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{string}\ \ \ \ \ \ \ \ \ \ getStatus\ ()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordtype}{string}\ \ \ \ \ \ \ \ \ \ getCaller\ ();}
+\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{string}\ \ \ \ \ \ \ \ \ \ getInfo\ ()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{string}\ \ \ \ \ \ \ \ \ \ getResultString\ ()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00047\ \ \ ByteVect\ \ \ \ \ \ \ \ getResult\ ()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00048\ \ \ ByteVect\ \ \ \ \ \ \ \ getResultBytes\ ();}
+\DoxyCodeLine{00049\ \ \ VectOfByteVect\ \ Splitted;}
+\DoxyCodeLine{00050\ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBBASEXCPP\_SRC\_RESPONSEOBJ\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

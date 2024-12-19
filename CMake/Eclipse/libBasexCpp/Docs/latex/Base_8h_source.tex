@@ -1,0 +1,61 @@
+\doxysection{Base.\+h}
+\label{Base_8h_source}\index{src/Base.h@{src/Base.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Base.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Created\ on:\ 18\ apr.\ 2023}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ Ben\ Engbers}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ BASE\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ BASE\_H\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifdef\ \_\_WIN32\_\_}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <winsock2.h>}}
+\DoxyCodeLine{00016\ include\ <Windows.h>}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <wordexp.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <sys/socket.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}ClientUtils.h"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}BasexSocket.h"{}}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ \ \ \ \ \ \ \ \ \ \ }QueryObject;}
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ \ \ \ \ \ \ \ \ \ \ }BasexSocket;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{namespace\ }BasexCpp\ \{}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{typedef}\ std::shared\_ptr\ <\ BasexSocket\ >\ BasexSock\_Sptr;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }Base\ \{}
+\DoxyCodeLine{00044\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00045\ \ \ Base();}
+\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{explicit}\ Base\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&);}
+\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{explicit}\ Base\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&);}
+\DoxyCodeLine{00048\ \ \ \string~\ Base\ ();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ Base\ (BasexSock\_Sptr\ socket);}
+\DoxyCodeLine{00051\ \ \ Base\ addVoid\ (\textcolor{keywordtype}{string}\ Add,\ ByteVect\ \&\ To);}
+\DoxyCodeLine{00052\ \ \ Base\ addVoid\ (ByteVect\ Add,\ ByteVect\ \&\ To);}
+\DoxyCodeLine{00053\ \ \ Base\ pushByte\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ Oct,\ ByteVect\ \&\ To);}
+\DoxyCodeLine{00054\ \ \ Base\ handShake\ (ByteVect\ Input,\ ByteVect\ \&\ Result);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ BasexSock\_Sptr\ Socket;}
+\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ BASE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

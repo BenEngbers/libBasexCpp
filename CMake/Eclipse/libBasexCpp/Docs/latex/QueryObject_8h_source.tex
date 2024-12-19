@@ -1,0 +1,78 @@
+\doxysection{Query\+Object.\+h}
+\label{QueryObject_8h_source}\index{src/QueryObject.h@{src/QueryObject.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ QueryObject.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Created\ on:\ 12\ apr.\ 2023}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ Ben\ Engbers}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ QUERYOBJECT\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ QUERYOBJECT\_H\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }BasexSocket;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }ResponseObj;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}ResponseObj.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}Base.h"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{namespace\ }BasexCpp\ \{}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{typedef}\ std::shared\_ptr\ <\ BasexSocket\ >\ BasexSock\_Sptr;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }QueryObject:\ \textcolor{keyword}{public}\ Base}
+\DoxyCodeLine{00036\ \{}
+\DoxyCodeLine{00037\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \textcolor{keyword}{explicit}\ QueryObject\ (BasexSock\_Sptr,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&);}
+\DoxyCodeLine{00039\ \ \ \string~\ QueryObject\ ();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{void}\ Close\ ();}
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{void}\ Bind\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ value,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ type\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{void}\ Bind\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ name,\ \textcolor{keyword}{const}\ std::list\ <\ string\ >\ \&valueList,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ type\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordtype}{void}\ Bind\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ name,\ \textcolor{keyword}{const}\ std::list\ <\ string\ >\ \&valueList,\ \textcolor{keyword}{const}\ std::list\ <\ string\ >\ \&typeList);}
+\DoxyCodeLine{00045\ \ \ ByteVect\ Next\ ();}
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{bool}\ More\ ();}
+\DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{void}\ Exec\ ();}
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{void}\ Info\ ();}
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{void}\ Options\ ();}
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{void}\ Context\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ value,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ type\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{void}\ Updating\ ();}
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{void}\ Full\ ();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{string}\ getQueryString\ ();}
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{string}\ getStatus\ ();}
+\DoxyCodeLine{00056\ \ \ ByteVect\ getResultBytes\ ();}
+\DoxyCodeLine{00057\ \ \ ByteVect\ getResult\ ();}
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{string}\ getResultString\ ();}
+\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{string}\ asString\ (\textcolor{keyword}{const}\ ByteVect\ \&\ vect);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ ResponseObj\ Response;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00064\ \ \ ByteVect\ QueryID\ \{\ \};}
+\DoxyCodeLine{00065\ \ \ VectOfByteVect\ Results\ ();}
+\DoxyCodeLine{00066\ \ \ \textcolor{keywordtype}{size\_t}\ Pos;}
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordtype}{string}\ queryString\ \{}
+\DoxyCodeLine{00068\ \ \ \};}
+\DoxyCodeLine{00069\ \ \ VectOfByteVect\ *\ Cache\ \{\ \textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00070\ \};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ QUERYOBJECT\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

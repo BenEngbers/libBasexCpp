@@ -1,0 +1,24 @@
+\chapter{lib\+Basex\+Cpp}
+\label{index}\index{libBasexCpp@{libBasexCpp}}
+\doxysubsection{Introduction}\label{index_autotoc_md0}
+\textquotesingle{}BaseX\textquotesingle{} is a robust, high-\/performance XML database engine and a highly compliant XQuery 3.\+1 processor with full support of the W3C Update and Full Text extensions.
+
+All clients are based on the client/server architecture. Hence, a BaseX database server must be started first. ~\newline
+ Each client provides a session class or script with methods to connect to and communicate with the database server. A socket connection will be established by the constructor, which expects a host, port, username and password as arguments. lib\+Basex\+Cpp uses the Basex\+Client class to instantiate a websocket to the Basex web server . ~\newline
+
+
+In the {\texttt{ server protocol}} for BaseX, 2 sub-\/protocols are distinguished\+:
+\begin{DoxyItemize}
+\item The command protocol applies to commands sent to the server.
+\begin{DoxyItemize}
+\item Command() executes a database command.
+\item Create() creates a new database.
+\item Create(), Add(), Put() and Putbinary() methods pass on input streams to the corresponding database commands. The input can be a UTF-\/8 encoded XML document, a binary resource, or any other data (such as JSON or CSV) that can be successfully converted to a resource by the server. ~\newline
+
+\item Query() method creates a query instance and returns an id. ~\newline
+
+\end{DoxyItemize}
+\item The query command protocol applies to commands sent to the Query object which is identified by the id as returned by the Query() method. ~\newline
+ Variables and the context item can be bound to that instance. The result can either be requested via execute(), or in an iterative manner with the more() and next() functions. If an error occurs, an exception will be thrown. ~\newline
+ 
+\end{DoxyItemize}

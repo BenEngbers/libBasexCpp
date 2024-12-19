@@ -1,0 +1,35 @@
+\doxysection{Basex\+Cpp\+::Response\+Obj Class Reference}
+\label{classBasexCpp_1_1ResponseObj}\index{BasexCpp::ResponseObj@{BasexCpp::ResponseObj}}
+
+
+{\ttfamily \#include $<$Response\+Obj.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \textbf{ get\+Status} () const
+\begin{DoxyCompactList}\small\item\em Statusbyte. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxyref{Response\+Obj}{p.}{classBasexCpp_1_1ResponseObj}. Any interaction with \doxyref{Basex\+Client}{p.}{classBasexCpp_1_1BasexClient} or with a \doxyref{Query\+Object}{p.}{classBasexCpp_1_1QueryObject} results in a Response object. 
+
+\doxysubsection{Member Function Documentation}
+\index{BasexCpp::ResponseObj@{BasexCpp::ResponseObj}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!BasexCpp::ResponseObj@{BasexCpp::ResponseObj}}
+\doxysubsubsection{getStatus()}
+{\footnotesize\ttfamily \label{classBasexCpp_1_1ResponseObj_a7eef599fdca2215da40c454b46f32b4c} 
+string Basex\+Cpp\+::\+Response\+Obj\+::get\+Status (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Statusbyte. 
+
+all results end with a single \textbackslash{}00 byte, which indicates that the process was successful. If an error occurs, an additional byte \textbackslash{}01 is sent, which is then followed by the error message string.
+
+@ return string "{}\+Status\+: Success"{} \+: "{}\+Status\+: Failed"{} 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Response\+Obj.\+h\item 
+src/Response\+Obj.\+cpp\end{DoxyCompactItemize}

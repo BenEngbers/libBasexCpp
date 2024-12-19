@@ -1,0 +1,83 @@
+\doxysection{Basex\+Socket.\+h}
+\label{BasexSocket_8h_source}\index{src/BasexSocket.h@{src/BasexSocket.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ BasexSocket.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Created\ on:\ 7\ december\ 2022}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ Ben\ Engbers}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ BASEXSOCKET\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ BASEXSOCKET\_H\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <netdb.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <sys/types.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <sys/fcntl.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <err.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <openssl/evp.h>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <openssl/md5.h>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#ifdef\ \_\_WIN32\_\_}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <winsock2.h>}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <Windows.h>}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <sys/socket.h>}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{namespace\ }BasexCpp\ \{}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{typedef}\ std::vector\ <\ std::vector\ <\ std::byte\ >>\ VectOfByteVect;}
+\DoxyCodeLine{00039\ \textcolor{keyword}{typedef}\ std::vector\ <\ std::byte\ >\ ByteVect;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{class}}
+\DoxyCodeLine{00042\ \ \ BasexSocket\ \{}
+\DoxyCodeLine{00043\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{explicit}}
+\DoxyCodeLine{00045\ \ \ BasexSocket\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{string},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string});}
+\DoxyCodeLine{00046\ \ \ \string~\ BasexSocket\ ();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ BasexSocket\ (\textcolor{keyword}{const}\ BasexSocket\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00049\ \ \ BasexSocket\ \&\ operator=\ (\textcolor{keyword}{const}\ BasexSocket\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{int}\ get\_Socket\ ()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{bool}\ wait\ ();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{int}\ readSocket\ (\textcolor{keywordtype}{string}\ \&\ sockResponseString);}
+\DoxyCodeLine{00055\ \ \ ssize\_t\ writeData\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ input);}
+\DoxyCodeLine{00056\ \ \ ssize\_t\ writeData\ (\textcolor{keyword}{const}\ ByteVect\ \&\ input);}
+\DoxyCodeLine{00057\ \ \ ssize\_t\ writeData\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *input);}
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{int}\ writeByte\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ rawNum);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00061\ \ \ \textcolor{keyword}{static}\ ByteVect}
+\DoxyCodeLine{00062\ \ \ decode\ (\textcolor{keyword}{const}\ ByteVect\ \&\ encoded);}
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{int}\ Master\_sfd;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ BasexSocket\ \&\ CreateSocket\ (\textcolor{keywordtype}{string},\ \textcolor{keywordtype}{string});}
+\DoxyCodeLine{00066\ \ \ BasexSocket\ \&\ Authenticate\ (\textcolor{keywordtype}{string},\ \textcolor{keywordtype}{string});}
+\DoxyCodeLine{00067\ \};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{string}\ md5\_basex\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ content);}
+\DoxyCodeLine{00070\ \textcolor{keywordtype}{int}\ set\_nonblock\_flag\ (\textcolor{keywordtype}{int}\ desc,\ \textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{string}\ md5\_pwd\ (\textcolor{keywordtype}{string}\ rts,\ \textcolor{keywordtype}{string}\ user,\ \textcolor{keywordtype}{string}\ passwd);}
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{void}\ StringSplit\ (vector\ <\ string\ >\ \&strings,\ \textcolor{keywordtype}{string}\ input,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ \&sep);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ BASEXSOCKET\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,85 @@
+\doxysection{Basex\+Client.\+h}
+\label{BasexClient_8h_source}\index{src/BasexClient.h@{src/BasexClient.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ CBasexClient.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Created\ on:\ 28\ apr.\ 2020}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ Ben\ Engbers}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ BASEXCLIENT\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ BASEXCLIENT\_H\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ \ \ \ \ \ \ \ \ \ \ }BasexSocket;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ \ \ \ \ \ \ \ \ \ \ }ResponseObj;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ \ \ \ \ \ \ \ \ \ \ }QueryObject;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}ResponseObj.h"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}QueryObject.h"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}Base.h"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <regex>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <curlpp/cURLpp.hpp>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <curlpp/Easy.hpp>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <curlpp/Options.hpp>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <curlpp/Exception.hpp>}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <cstdio>}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{namespace\ }BasexCpp\ \{}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{class\ \ \ \ \ \ \ \ \ \ \ }QueryObject;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{typedef}\ std::unique\_ptr\ <\ QueryObject\ >\ QueryObj\_Uptr;}
+\DoxyCodeLine{00036\ \textcolor{keyword}{typedef}\ std::vector\ <\ std::byte\ >\ ByteVect;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }BasexClient:\ \textcolor{keyword}{public}\ Base\ \{}
+\DoxyCodeLine{00048\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00049\ \ \ BasexClient();}
+\DoxyCodeLine{00058\ \ \ BasexClient\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \&,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&);}
+\DoxyCodeLine{00059\ \ \ BasexClient\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&);}
+\DoxyCodeLine{00060\ \ \ \string~\ BasexClient\ ();}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordtype}{void}\ Execute\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ command);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00075\ \ \ \textcolor{keywordtype}{void}\ Create\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ dbName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ content\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00083\ \ \ \textcolor{keywordtype}{void}\ Add\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ path,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ input);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00091\ \ \ \textcolor{keywordtype}{void}\ Put\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ path,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ input);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00099\ \ \ \textcolor{keywordtype}{void}\ PutBinary\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ path,\ \textcolor{keyword}{const}\ ByteVect\ \&\ input);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00106\ \ \ QueryObj\_Uptr\ Query\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ query);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00113\ \ \ \textcolor{keywordtype}{string}\ getCaller\ ();}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordtype}{string}\ getInfo\ ();}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00127\ \ \ \textcolor{keywordtype}{string}\ getStatus\ ();}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00134\ \ \ \textcolor{keywordtype}{string}\ getResultString\ ();}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00141\ \ \ ByteVect\ getResultBytes\ ();}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00148\ \ \ ByteVect\ getResult\ ();}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ ResponseObj\ Response;}
+\DoxyCodeLine{00151\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00152\ \ \ QueryObj\_Uptr\ Query\ (BasexSock\_Sptr\ socket,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ query);}
+\DoxyCodeLine{00153\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00154\ \ \ BasexClient\ \&\ addRawInput\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ Add,\ ByteVect\ \&\ To);}
+\DoxyCodeLine{00155\ \ \ BasexClient\ \&\ addRawInput\ (\textcolor{keyword}{const}\ ByteVect\ \&\ Add,\ ByteVect\ \&\ To);}
+\DoxyCodeLine{00156\ \};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ BASEXCLIENT\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

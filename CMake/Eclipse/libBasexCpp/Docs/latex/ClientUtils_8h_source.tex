@@ -1,0 +1,43 @@
+\doxysection{Client\+Utils.\+h}
+\label{ClientUtils_8h_source}\index{src/ClientUtils.h@{src/ClientUtils.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ CLIENTUTILS\_H\_}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ CLIENTUTILS\_H\_}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iterator>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <wordexp.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <sys/types.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{namespace\ }BasexCpp\ \{}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{typedef}\ std::vector\ <\ std::vector\ <\ std::byte\ >>\ VectOfByteVect;}
+\DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ std::vector\ <\ std::byte\ >\ ByteVect;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00032\ ByteVect\ getBytes\ (\textcolor{keywordtype}{string}\ \textcolor{keyword}{const}\ \&s);}
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{string}\ getChar\ (ByteVect\ \textcolor{keyword}{const}\ \&b);}
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{string}\ pathExpander\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ s,\ \textcolor{keywordtype}{int}\ flags\ =\ 0);}
+\DoxyCodeLine{00035\ std::ostream\ \&\ debug\_dump\ (\textcolor{keyword}{const}\ ByteVect\ \&\ str,\ std::ostream\ \&\ stm\ =}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ std::cout);}
+\DoxyCodeLine{00037\ std::ostream\ \&\ debug\_dump\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ str,\ std::ostream\ \&\ stm\ =}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ std::cout);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ CLIENTUTILS\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

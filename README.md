@@ -1,6 +1,11 @@
+2024-12-19
+
+I am still working on the README.
+For now, if you want to build the library, excute `./Build.sh 1 2 3'
+
 2024-07-14
 
-# libBasexCpp 1.0.0
+# libBasexCpp 2.1.0
 
 CMakeLists.txt is based on Cmake 3.25.1.
 
